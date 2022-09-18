@@ -1,5 +1,5 @@
 let game ={
-    
+
     gold:0,
     dps:0,
     clickDamage:1,
@@ -43,6 +43,7 @@ function damageMonster (){ // Click monster to damage monster
     let x = new Decimal(game.monsterHealth);
     let y = new Decimal(game.clickDamage);
     z = Decimal.minus(x,y);
+    if (Decimal.lt(z,0)){z = new Decimal(0)}
     game.monsterHealth = z;
     // console.log(game.monsterHealth);
     updateGUI();
@@ -50,6 +51,9 @@ function damageMonster (){ // Click monster to damage monster
 
 function killMonster (){ // What happens when monster dies. Uses monster health, zone health, monsters remaining, gold, zone reward
     if (Decimal.lte(game.monsterHealth,0)){
+        let elem1 = document.getElementById("monster");
+        elem1.innerHTML = "☠️";
+        deathAnimation1();
         let x = new Decimal(game.monsterHealth);
         let y = new Decimal(game.zoneHealth);
         z = Decimal.plus(x,y);
@@ -63,7 +67,7 @@ function killMonster (){ // What happens when monster dies. Uses monster health,
         g=Decimal.plus(v,w);
         game.gold = g;
         game.monstersRemaining = uu
-        deathAnimation1();
+        
         updateGUI();
     
     }
@@ -71,8 +75,7 @@ function killMonster (){ // What happens when monster dies. Uses monster health,
 
 function deathAnimation1 (){
     let elem1 = document.getElementById("monster");
-    elem1.innerHTML = "☠️";
-    setTimeout(deathAnimation2, 500);
+    setTimeout(deathAnimation2, 300);
 }
 
 function deathAnimation2 (){
@@ -118,7 +121,7 @@ function buyCid (){  // Buys Cid. Affects gold, click damage, Cid level, Cid pri
         game.clickDamage = d;
         game.cid.level = c;
         game.cid.price = b;
-        game.cid.dpc = z;
+        game.cid.dpc = e;
         
 
     }else{return};
@@ -129,7 +132,7 @@ function updateGUI() { // Updates GUI
     document.getElementById("dpc-value").textContent = F(game.clickDamage);
     document.getElementById("monster-health").textContent = F(game.monsterHealth);
     document.getElementById("cid-price").textContent = F(game.cid.price);
-    document.getElementById("level-cid").textContent = game.cid.level;
+    document.getElementById("level-cid").textContent = "Lvl " + game.cid.level;
     document.getElementById("dpc-cid").textContent = F(game.cid.dpc);
     document.getElementById("zone").textContent = "Zone " + game.zone;
     document.getElementById("monsters-remaining").textContent = game.monstersRemaining + "/" + game.monsterTotal;
