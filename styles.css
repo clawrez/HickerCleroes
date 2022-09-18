@@ -1,0 +1,132 @@
+* {
+    margin:0;
+    padding:0;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+}
+
+body {
+    background-color: rgb(28, 24, 41);
+    color:white;
+    font-family: Matiz;
+}
+.left{
+    background-color: rgb(52, 38, 69);
+    width:45%;
+    height:100%;
+    float:left;
+    padding:8px;
+
+}
+
+.main-stats {
+    padding:8px;
+    padding-left:12px;
+    background-color: rgb(35, 24, 44);
+    font-size: 36px;
+}
+
+.left-menu-buttons {
+    display: grid;
+    font-size: 18px;;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.left-menu-button {
+    margin-top:4px;
+    margin-right:4px;
+    margin-bottom:4px;
+    padding:4px;
+    background-color: rgb(35, 24, 44);
+}
+
+.left-menu-button:hover{
+    filter: brightness(1.2);
+}
+
+.monster {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    vertical-align: middle;
+    line-height: 300px;
+    top: 0;
+    bottom: 0;
+    left: 850;
+    right: 0;
+    text-align: center;
+    margin: auto;
+    transition: 0.2s;
+}
+
+
+#monster {
+    font-size: 200px;
+    display:inline-block;
+}
+
+#monster-health, #monsters-remaining, #zone {
+    text-align: center;
+    line-height: 48px;
+    font-size: 36px;
+}
+
+#monster:hover {
+    filter: brightness(1.2);
+    transition: 0.2s;
+}
+
+#monster:active {
+    filter: brightness(1.5) hue-rotate(80deg);
+    rotate: 2deg;
+    scale: 102%;
+    transition: 0.1s;
+}
+
+.cid, .hero {
+    display:grid;
+    padding:8px;
+    margin-bottom: 8px;
+    background-color: rgb(35, 24, 44);
+    font-size: 18px;
+}
+
+.buy-hero,  .buy-cids{
+    color:black;
+    font-size: 24px;
+    background-color: rgb(25, 178, 253);
+    text-align: center;
+    vertical-align: center;
+    line-height: 33px;
+    width: 15%;
+    height:66px;
+    position:absolute;
+    display:inline-block;
+    z-index:1;
+    transition:0.2s;
+    /* float:left; */
+}
+
+.buy-hero:hover,  .buy-cids:hover{
+    background-color: white;
+}
+
+.hero-name, .hero-level, .hero-dps, .cid-dpc{
+    width:100%;
+    height:auto;
+    position: relative;
+    /* display: inline-block; */
+    float: right;
+    text-align: right;
+}
+
+@font-face {
+    font-family: Matiz;
+    src: url(Matiz.ttf);
+}
